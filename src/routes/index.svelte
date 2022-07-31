@@ -12,8 +12,8 @@
     <br>
 
     {#each generationList as generation}
-        <span class="{ isMatched(selected, generation) ? 'matched' : '' }">
-            { generation.name } is {isMatched(selected, generation) ? 'matched' : ''} <br>
+        <span class="{ isMatched(selected, generation) ? 'matched' : 'unmatched' }">
+            { generation.name } <br>
         </span>
     {/each}
 </p>
@@ -21,6 +21,18 @@
 <p>
     ref: https://business-textbooks.com/generation-list/
 </p>
+
+<style>
+    .matched {
+        color: red;
+        font-size: larger;
+    }
+
+    .unmatched {
+        color: gray;
+        font-size: smaller;
+    }
+</style>
 
 <script lang="ts">
     let selected = 1980;
