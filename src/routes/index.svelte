@@ -1,5 +1,6 @@
 <h1>{ title }</h1>
-<p>
+<p class="input-area">
+    生まれ年を入力してください。<br>
     <select bind:value={selected} name="input-age" id="age">
         {#each ageList as age}
             <option value="{age}">{age}</option>
@@ -8,9 +9,6 @@
 </p>
 
 <p>
-    selected is { selected } <br>
-    <br>
-
     {#each generationList as generation}
         <span class="{ isMatched(selected, generation) ? 'matched' : 'unmatched' }">
             { generation.name } <br>
@@ -19,10 +17,25 @@
 </p>
 
 <p>
-    ref: https://business-textbooks.com/generation-list/
+    参考: <a
+        href="https://business-textbooks.com/generation-list/">https://business-textbooks.com/generation-list/</a><br>
+    ※習作なので情報の確かさは保証されていません。
+</p>
+
+<p>
+    ※情報はどこにも保存されません。
 </p>
 
 <style>
+    .input-area {
+        font-size: 2rem;
+    }
+
+    select {
+        margin-left: 10px;
+        transform: scale(1.5);
+    }
+
     .matched {
         color: red;
         font-size: larger;
